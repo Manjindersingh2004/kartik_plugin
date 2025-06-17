@@ -68,7 +68,7 @@ public class SaveSubscriptionPlugin extends ExtDefaultPlugin implements PluginWe
             data.put("auth", auth);
 
             FormDataDao formDataDao= (FormDataDao) AppUtil.getApplicationContext().getBean("formDataDao");
-            formDataDao.saveAppFormData("app_push", "push_subscription", data); // replace app ID if needed
+            formDataDao.saveOrUpdate("app_push", data); // replace app ID if needed
 
             response.getWriter().write("{\"status\":\"success\"}");
 
